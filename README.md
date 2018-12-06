@@ -59,17 +59,46 @@
 | ------------------------------------------------------------ |
 | 1. 其https://github.com使用邮箱注册一个github账号, 验证邮箱(这个环节可能有网络不畅缓冲不出来验证码的情况). |
 | 2. 去https://github.com/dsjxtjc/final-project/tree/master, 点击右上角的fork, 将代码拷贝一份到你的账号下, 其实可以直接在主分支上修改, 但是不推荐. |
-| ![](../../dataming-assignments/Assignment03/assets/fork.png) |
-| ![](../../dataming-assignments/Assignment03/assets/fork1.png) |
-| 3. 可以克隆一份到本地方便修改,  下载可以使用SSH, 使用方法和大数据系统基础上的用法一致, 需要下载前面所说的Git, 以及将生成SSH公钥复制到Github后台.也可以使用https方式和downloadzip方式, 就能下载zip包.![](../../dataming-assignments/Assignment03/assets/clone.png) |
+| ![](assets/fork.png)                                         |
+| ![](assets/fork1.png)                                        |
+| 3. 可以克隆一份到本地方便修改,  下载可以使用SSH, 使用方法和大数据系统基础上的用法一致, 需要下载前面所说的Git, 以及将生成SSH公钥复制到Github后台.也可以使用https方式和downloadzip方式, 就能下载zip包.![](assets/clone.png) |
 | 4. , 在本地的修改, 可以进行git版本的控制(例如那次把代码改烂了, 可以回退到之前的任意版本), 也可以使用github desktop来实现. |
-| 5.                                                           |
-|                                                              |
-|                                                              |
+| 5. 将修改后的仓库上传到这GitHub上, 可以使用git , github desktop, 或者直接在github网站上采用可视化或拖拽方式进行. ![](assets/upload.png) |
+| 6. 但你觉得自己的修改可能对整个系统有帮助, 可以使用pullrequest, 将自己的修改推到主分支上. |
+| ![](assets/pullrequest.png)                                  |
+
+主分支会审核提交者的代码, 但作为主分支所属组织的成员时, 也可以直接对主分支进行修改. 否则, 大家做的修改都是在各自分支上的. 由于git学习起来需要一些时间, 所以这里暂定采取上面这种分布式办公的方式. 能使用图像化操作就用简单的方式, 但是依然推荐使用github desktop 或者git bash.
+
+关于更多详情, 我们多在微信群里讨论, 更推荐在主分支里使用issue进行讨论!![](assets/issue.png)
 
 
+
+### 教程
+
+先修知识学习教程:
+
+markdown: 主要用于写文档, 例如写出本文档这种样子
+
+- 简书教程: https://www.jianshu.com/p/q81RER
+
+- typora教程, 下载typora后如下: 
+
+![](assets/helpmd.png)
+
+
+
+GitHub:
+
+- https://lab.github.com/, github机器人手把手教学
+
+- https://guides.github.com/activities/hello-world/, 官方简短的说明文档
+
+Git:
+
+- [廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/) 
 
 ## 任务1: 方案选择
+
 >
 > 时间: 2018年12月6日周四下午五点
 >
