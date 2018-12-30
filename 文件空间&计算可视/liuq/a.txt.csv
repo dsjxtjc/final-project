@@ -1,0 +1,3 @@
+filename,blockname,datanode_realpath,datanode,realpath,types_permissions,link,ownership,group_ownership,filesize,month,day,time,berbose
+wcdc,wcdc_00,thumm03:/data/dsjxtjc/2018211150/wcdc_00,thumm03,/data/dsjxtjc/2018211150/wcdc_00,-rw-r--r--,1,2018211150,dsjxtjc,300000000,Dec,20,09:01,wcdc_00
+wcdc,wcdc_00,thumm05:/data/dsjxtjc/2018211150/wcdc_00,thumm05,/data/dsjxtjc/2018211150/wcdc_00,-rw-r--r--,1,2018211150,dsjxtjc,300000000,Dec,20,09:01,wcdc_00

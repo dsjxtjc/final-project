@@ -1,0 +1,155 @@
+#!/usr/bin/python2.7
+import os
+import sys
+import commands
+import time
+
+namenode_path = '/home/dsjxtjc/2018211104/DFS/namenode.txt'
+
+def Copy(direction, fname, topath):
+    
+    if direction == 'To':
+        (st, output) = commands.getstatusoutput('grep '+fname+' '+namenode_path)
+        output = output.split(',')
+        commands.getstatusoutput('mkdir '+topath)
+        i = 1
+        while int(output[2])>=i:
+            if i <11: aimpath = output[3]+'_0'+str(i-1)
+            else:     aimpath = output[3]+'_'+str(i-1)
+            if i%4 == 1:
+                commands.getstatusoutput('scp thumm02:~/DFS/'+aimpath+' '+topath)
+                #commands.getstatusoutput('scp '+aimpath+' thumm03:~/DFS/')
+                #commands.getstatusoutput('scp '+aimpath+' thumm04:~/DFS/')
+            elif i%4 == 2:
+                #commands.getstatusoutput('scp '+aimpath+' thumm02:~/DFS/')
+                commands.getstatusoutput('scp thumm03:~/DFS/'+aimpath+' '+topath)
+                #commands.getstatusoutput('scp '+aimpath+' thumm05:~/DFS/')
+            elif i%4 == 3:
+                #commands.getstatusoutput('scp '+aimpath+' thumm02:~/DFS/')
+                commands.getstatusoutput('scp thumm04:~/DFS/'+aimpath+' '+topath)
+                #commands.getstatusoutput('scp '+aimpath+' thumm05:~/DFS/')
+            elif i%4 == 0:
+                #commands.getstatusoutput('scp '+aimpath+' thumm03:~/DFS/')
+                #commands.getstatusoutput('scp '+aimpath+' thumm04:~/DFS/')
+                commands.getstatusoutput('scp thumm05:~/DFS/'+aimpath+' '+topath)
+            else:
+                pass
+            i += 1
+            print 'Processing ------------------------------ ', 100*(i-1)/int(output[2]), '%'
+        commands.getstatusoutput('cat '+topath+'/'+output[3]+'* > '+topath+'/'+output[3])
+        commands.getstatusoutput('rm '+topath+'/'+output[3]+'_*')
+    elif direction == 'From':
+        fsize = os.path.getsize(fname)/1024/1024
+        fnum = fsize/256 + 1
+        commands.getstatusoutput('split -b 256M -d '+fname+' '+fname+'_')
+        i = 1
+        while fnum>=i:
+            if i <11: aimpath = fname+'_0'+str(i-1)
+            else:     aimpath = fname+'_'+str(i-1)
+            if i%4 == 1:
+                commands.getstatusoutput('scp '+aimpath+' thumm02:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm03:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm04:~/DFS/')
+            elif i%4 == 2:
+                commands.getstatusoutput('scp '+aimpath+' thumm02:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm03:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm05:~/DFS/')
+            elif i%4 == 3:
+                commands.getstatusoutput('scp '+aimpath+' thumm02:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm04:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm05:~/DFS/')
+            elif i%4 == 0:
+                commands.getstatusoutput('scp '+aimpath+' thumm03:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm04:~/DFS/')
+                commands.getstatusoutput('scp '+aimpath+' thumm05:~/DFS/')
+            else:
+                pass
+            i += 1
+            print 'Processing ------------------------------ ', 100*(i-1)/fnum, '%'
+        
+        f = open(namenode_path, 'a')
+        f.write(topath+',{}MB,{},'.format(fsize, fnum)+fname+'\n')
+        f.close()
+	commands.getstatusoutput('rm '+fname+'_*')
+
+    else:
+        print('The parameter of the function called Copy is Error!')
+
+    
+def ListFile():
+    f = open(namenode_path, 'r')
+    for line in f.readlines():
+        print line
+
+def Job(mappath, reducepath, indata, outdata):
+    (st, output) = commands.getstatusoutput('grep '+indata+' '+namenode_path)
+    output = output.split(',')
+
+    i = 1
+    while int(output[2])>=i:
+        if i <11: aimpath = output[3]+'_0'+str(i-1) + ' '
+        else:     aimpath = output[3]+'_'+str(i-1) + ' '
+        if i%4 == 1:
+            path2 += aimpath 
+        elif i%4 == 2:
+            path3 += aimpath
+        elif i%4 == 3:
+            path4 += aimpath
+        elif i%4 == 0:
+            path5 += aimpath
+        else:
+            pass
+        i += 1
+
+    commands.getstatusoutput('scp '+mappath+' thumm02:~/DFS/')
+    commands.getstatusoutput('scp '+mappath+' thumm03:~/DFS/')
+    commands.getstatusoutput('scp '+mappath+' thumm04:~/DFS/')
+    commands.getstatusoutput('scp '+mappath+' thumm05:~/DFS/')
+    
+    ipath[0] = ' /home/dsjxtjc/2018211104/DFS/Result/res2'
+    ipath[1] = ' /home/dsjxtjc/2018211104/DFS/Result/res3'
+    ipath[2] = ' /home/dsjxtjc/2018211104/DFS/Result/res4'
+    ipath[3] = ' /home/dsjxtjc/2018211104/DFS/Result/res5'
+
+    commands.getstatusoutput('ssh thumm02 /home/dsjxtjc/2018211104/DFS/'+mappath+ipath[0]+path2)
+    commands.getstatusoutput('ssh thumm03 /home/dsjxtjc/2018211104/DFS/'+mappath+ipath[1]+path3)
+    commands.getstatusoutput('ssh thumm04 /home/dsjxtjc/2018211104/DFS/'+mappath+ipath[2]+path4)
+    commands.getstatusoutput('ssh thumm05 /home/dsjxtjc/2018211104/DFS/'+mappath+ipath[3]+path5)
+
+    commands.getstatusoutput(reducepath+' '+ipath[0]+ipath[1]+ipath[2]+ipath[3])
+    
+    
+
+def main(argv):
+    print '\n ##--Start---------- ', time.asctime( time.localtime(time.time()) ), ' --------------------\n'
+
+    (st, out) = commands.getstatusoutput('ssh thumm02 mkdir ~/DFS')
+    (st, out) = commands.getstatusoutput('ssh thumm03 mkdir ~/DFS')
+    (st, out) = commands.getstatusoutput('ssh thumm04 mkdir ~/DFS')
+    (st, out) = commands.getstatusoutput('ssh thumm05 mkdir ~/DFS')
+    
+    cmd = argv[1]
+    if cmd == 'copyToLocal':
+        Copy('To', argv[2], argv[3])
+    elif cmd == 'copyFromLocal':
+        Copy('From', argv[2], argv[3])
+    elif cmd == 'rm':
+        print 'remove'
+    elif cmd == 'ls':
+        ListFile()
+    elif cmd == 'mkdir':
+        print 'make a direction'
+    elif cmd == 'job':
+        Job(argv[2], argv[3], argv[4], '')
+    elif cmd == 'help':
+        print '-------------------- Help ------------------------------'
+        print 'cmd: copyToLocal dfs_file_path local_file_path'
+        print 'cmd: copyFromLocal local_file_path dfs_file_path'
+        print 'cmd: rm'
+        print 'cmd: ls'
+    else:
+        print 'Input CMD Error!\nPlease input "./dfs help" to learn how to use.\nIf you have other questions, please add wechat "18635252168"!'
+
+
+if __name__ == '__main__':
+    main(sys.argv)

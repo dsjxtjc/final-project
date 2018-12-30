@@ -1,0 +1,17 @@
+id,file_id,name,datanode_realpath,datanode_id,realpath,types_permissions,link,ownership,group_ownership,size,month,day,time,verbose
+1,wcd,wcd_00,thumm03:/data/dsjxtjc/2018211150/wcd_00,thumm03,/data/dsjxtjc/2018211150/wcd_00,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_00
+2,wcd,wcd_00,thumm04:/data/dsjxtjc/2018211150/wcd_00,thumm04,/data/dsjxtjc/2018211150/wcd_00,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_00
+3,wcd,wcd_01,thumm03:/data/dsjxtjc/2018211150/wcd_01,thumm03,/data/dsjxtjc/2018211150/wcd_01,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_01
+4,wcd,wcd_01,thumm05:/data/dsjxtjc/2018211150/wcd_01,thumm05,/data/dsjxtjc/2018211150/wcd_01,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_01
+5,wcd,wcd_02,thumm04:/data/dsjxtjc/2018211150/wcd_02,thumm04,/data/dsjxtjc/2018211150/wcd_02,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_02
+6,wcd,wcd_03,thumm03:/data/dsjxtjc/2018211150/wcd_03,thumm03,/data/dsjxtjc/2018211150/wcd_03,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_03
+7,wcd,wcd_03,thumm04:/data/dsjxtjc/2018211150/wcd_03,thumm04,/data/dsjxtjc/2018211150/wcd_03,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_03
+8,wcd,wcd_04,thumm04:/data/dsjxtjc/2018211150/wcd_04,thumm04,/data/dsjxtjc/2018211150/wcd_04,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_04
+9,wcd,wcd_04,thumm05:/data/dsjxtjc/2018211150/wcd_04,thumm05,/data/dsjxtjc/2018211150/wcd_04,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_04
+10,wcd,wcd_05,thumm04:/data/dsjxtjc/2018211150/wcd_05,thumm04,/data/dsjxtjc/2018211150/wcd_05,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_05
+11,wcd,wcd_06,thumm05:/data/dsjxtjc/2018211150/wcd_06,thumm05,/data/dsjxtjc/2018211150/wcd_06,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_06
+12,wcd,wcd_07,thumm03:/data/dsjxtjc/2018211150/wcd_07,thumm03,/data/dsjxtjc/2018211150/wcd_07,-rw-r--r--,1,2018211150,dsjxtjc,150000000,Dec,21,18:48,wcd_07
+13,wcd,wcd_07,thumm05:/data/dsjxtjc/2018211150/wcd_07,thumm05,/data/dsjxtjc/2018211150/wcd_07,-rw-r--r--,1,2018211150,dsjxtjc,150000000,Dec,21,18:48,wcd_07
+14,wcd,wcd_02,thumm03:/data/dsjxtjc/2018211150/wcd_02,thumm03,/data/dsjxtjc/2018211150/wcd_02,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_02
+15,wcd,wcd_05,thumm03:/data/dsjxtjc/2018211150/wcd_05,thumm03,/data/dsjxtjc/2018211150/wcd_05,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_05
+16,wcd,wcd_06,thumm03:/data/dsjxtjc/2018211150/wcd_06,thumm03,/data/dsjxtjc/2018211150/wcd_06,-rw-r--r--,1,2018211150,dsjxtjc,250000000,Dec,21,18:48,wcd_06
